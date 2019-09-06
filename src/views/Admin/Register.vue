@@ -75,7 +75,8 @@
                 </b-row>
                 <b-row >
                   <b-col>
-                      {{currentSeminar.venue_address}}
+                      <read-more more-str="read more" :text="currentSeminar.venue_address" link="#" less-str="read less" :max-chars="250"></read-more>
+                      <!-- {{currentSeminar.venue_address}} -->
                       <!-- <b-form-textarea disabled rows="6" style="background-color:white;border:none;resize: none;outline:none;" v-model="currentSeminar.venue_address"></b-form-textarea> -->
                       <br/>
                   </b-col>
@@ -108,7 +109,7 @@
               <gmap-info-window
                 v-if="currentSeminar.venue_address"
                 :position="currentCroods"
-              >{{currentSeminar.venue_address}}</gmap-info-window>
+              >{{currentSeminar.formated_venue_address}}</gmap-info-window>
             </GmapMap>
             
           </b-col>
@@ -124,7 +125,7 @@
               </b-col>
             </b-row>
             <br>
-            <div v-if="currentSeminar.isPast">
+            <div>  <!--v-if="currentSeminar.isPast"> -->
             <b-row>    <!--v-if="currentSeminar.isFull"-->
               <b-col sm="12">
                 <label :for="`type`" class="labelsi col-form-label"><b>Fee:</b></label>

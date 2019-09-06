@@ -8,7 +8,7 @@
         <b-col md="8" sm="12" lg="8" class="calender-root">
         <b-row>
           <b-col>
-            <b-button to="/" variant="primary">Back To Calender</b-button>
+            <b-button to="/" variant="primary">Back To Calendar</b-button>
           </b-col>
         </b-row>
         <b-row>
@@ -64,8 +64,8 @@
             </b-row>
              <b-row >
                   <b-col>
-                    
-                      {{currentSeminar.venue_address}}
+                     <read-more more-str="read more" :text="currentSeminar.venue_address" link="#" less-str="read less" :max-chars="250"></read-more>
+                      
                       <!-- <b-form-textarea disabled rows="6" style="background-color:white;border:none;resize: none;outline:none;" v-model="currentSeminar.venue_address"></b-form-textarea> -->
                       <br/>
                   </b-col>
@@ -98,15 +98,15 @@
               <gmap-info-window
                 v-if="currentSeminar.venue_address"
                 :position="currentCroods"
-              >{{currentSeminar.venue_address}}</gmap-info-window>
+              >{{currentSeminar.formated_venue_address}}</gmap-info-window>
             </GmapMap>
           </b-col>
         </b-row>
         
         <br/>
 
-         <div v-if="currentSeminar.isPast">
-            <b-row v-if="currentSeminar.isFull">
+         <div> <!-- v-if="currentSeminar.isPast"> -->
+            <b-row><!-- v-if="currentSeminar.isFull"-->
               <b-col sm="12">
                 <label :for="`type`" class="labelsi col-form-label"><b>Fee:</b></label>
               </b-col>
@@ -330,7 +330,7 @@
      <b-col style="position:relative;margin:0px;top:30px">    
        <!-- <b-col>    -->
          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <div v-if="!currentSeminar.isPast" style="position:absolute;margin:0px;bottom:20px">
+        <div v-if="!currentSeminar.isPast" style="position:absolute;margin:0px;bottom:20px;width:90%;">
           <b-row v-if="!currentSeminar.isFull" class="mt-2 fee-detail myboxD" style="font-weight:bold;">
             <b-row style="width:100%;" sm="12" md="12" lg="12">
               <b-col sm="6">Seminar Fee:</b-col>

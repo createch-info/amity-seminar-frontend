@@ -70,7 +70,7 @@
             <label for="textarea-default" style="font-weight:bold;">Venue Address:</label>
           </b-col>
           <b-col md="4" sm="12">
-            {{currentSeminar.venue_address}}
+            <read-more more-str="read more" :text="currentSeminar.venue_address" link="#" less-str="read less" :max-chars="250"></read-more>
             <!-- <b-form-textarea disabled rows="3" v-model="currentSeminar.venue_address"></b-form-textarea> -->
           </b-col>
           <b-col md="4" sm="12">
@@ -175,7 +175,7 @@
             id="input-group-2"
             label="Capacity:"
             label-for="input-2"
-            :invalid-feedback="error.capacity ? error.capacity[0] : '' "
+            :invalid-feedback="error.capacity ? error.capacity : '' "
           >
             <b-form-input
               :state="error.capacity ? false : true"
@@ -184,7 +184,9 @@
               v-model="currentSeminar.capacity"
               required
               placeholder="Enter Capacity"
+              @blur="validate"
             ></b-form-input>
+       
           </b-form-group>
           <b-row>
             <b-col sm="12" md="3">
@@ -226,6 +228,7 @@
                   placeholder="Enter Start Time"
                 ></b-form-input>
               </b-form-group>
+                
             </b-col>
             <b-col>
               <b-form-group
@@ -234,14 +237,15 @@
                 id="input-group-2"
                 label="End Time:"
                 label-for="input-2"
-                :invalid-feedback="error.end_time ? error.end_time[0] : '' "
+                :invalid-feedback="error.end_time_sc ? error.end_time_sc[0] : '' "
               >
+          
                 <b-form-input
                 disabled
-                  :state="error.end_time ? false : true"
+                  :state="error.end_time_sc ? false : true"
                   type="time"
-                  id="input-2"
-                  v-model="currentSeminar.end_time"
+                  id="input-2"  
+                  v-model="currentSeminar.end_time_sc"
                   required
                   placeholder="Enter Capacity"
                 ></b-form-input>
@@ -262,7 +266,7 @@
                 <b-form-textarea
                   :state="error.venue_address ? false : true"
                   id="textarea"
-                  v-model="currentSeminar.venue_address"
+                  v-model="currentSeminar.formated_venue_address"
                   placeholder="Enter Venue Address"
                   rows="10"
                   max-rows="6"
@@ -522,6 +526,15 @@ export default {
     };
   },
   methods: {
+    validate(){
+        if(parseInt(this.currentSeminar.capacity)>=parseInt(this.currentSeminar.registrants_count) && parseInt(this.currentSeminar.capacity)>0){
+            this.$set(this.error,"capacity","");
+        }
+        else
+        {
+            this.$set(this.error,"capacity","No of seats must be at least "+this.currentSeminar.registrants_count);
+        }
+    },
     setLocation(ev) {
       let geocoder = new this.google.maps.Geocoder();
       let locations = {
@@ -609,25 +622,30 @@ export default {
     },
     onSubmit(evt) {
       evt.preventDefault();
-      this.currentSeminar.lat = this.currentCroods.lat;
-      this.currentSeminar.lng = this.currentCroods.lng;
-      this.currentSeminar.description=this.currentSeminar.formated_description;
+      
+      if(parseInt(this.currentSeminar.capacity)>=parseInt(this.currentSeminar.registrants_count) && parseInt(this.currentSeminar.capacity)>0)
+      {
+          this.currentSeminar.lat = this.currentCroods.lat;
+          this.currentSeminar.lng = this.currentCroods.lng;
+          this.currentSeminar.description=this.currentSeminar.formated_description;
+          this.currentSeminar.venue_address=this.currentSeminar.formated_venue_address;
 
-      this.isProcess = true;
-      this.$http
-        .put(`seminar/${this.currentSeminar.id}`, this.currentSeminar)
-        .then(res => {
-          this.isProcess = false;
-          this.isUpdate = false
-          this.$swal({
-              type: "success",
-                title: `You have successfully updated  "${this.currentSeminar.title}" seminar`,
-                allowOutsideClick: false
-              }).then(res => window.location.reload());
-        })
-        .catch(error => {
-          this.error = error.errors;
-        });
+          this.isProcess = true;
+          this.$http
+            .put(`seminar/${this.currentSeminar.id}`, this.currentSeminar)
+            .then(res => {
+              this.isProcess = false;
+              this.isUpdate = false
+              this.$swal({
+                  type: "success",
+                    title: `You have successfully updated  "${this.currentSeminar.title}" seminar`,
+                    allowOutsideClick: false
+                  }).then(res => window.location.reload());
+            })
+            .catch(error => {
+              this.error = error.errors;
+            });
+        }
     },
     reSetschedules() {
       this.currentSeminar.schedules = [];
@@ -711,7 +729,19 @@ export default {
           )
         : "";
     },
-  }
+    
+  },
+  // watch:{
+  //   "currentSeminar.capacity":function() {
+  //       alert(this.currentSeminar.capacity);
+  //       if(this.currentSeminar.capacity>=this.currentSeminar.registrants_count && this.currentSeminar.capacity>0){
+  //           this.error.capacity="";
+  //       }
+  //       else{
+  //         this.error.capacity="No of seats must be at least "+this.currentSeminar.registrants_count;
+  //       }
+  //   }
+  // }
 };
 </script>
 <style>
