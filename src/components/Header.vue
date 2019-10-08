@@ -22,13 +22,13 @@
           </b-navbar-nav>
 
           <b-navbar-nav class="testing_main" is-nav v-else>
-            <b-nav-item :active="false" class="navlink" href="https://testing.amityhealthcaregroup.com" >HOME</b-nav-item>
-            <b-nav-item href="https://testing.amityhealthcaregroup.com/about-us/" class="navlink">ABOUT US</b-nav-item>
+            <b-nav-item :active="false" class="navlink" href="https://amityhealthcaregroup.com" >HOME</b-nav-item>
+            <b-nav-item href="https://amityhealthcaregroup.com/about-us/" class="navlink">ABOUT US</b-nav-item>
             <b-nav-item href="/#/" class="navlink">SERVICES</b-nav-item>
-            <b-nav-item :active="true" href="https://testing.amityhealthcaregroup.com/education/#/" class="navlink">EDUCATION</b-nav-item>
-            <b-nav-item href="https://testing.amityhealthcaregroup.com/resources/" class="navlink">RESOURCES</b-nav-item>
-            <b-nav-item href="https://testing.amityhealthcaregroup.com/contact/" class="navlink">CONTACT US</b-nav-item>
-            <b-nav-item href="/#/" class="navlink buttonspecial">SUBMIT YOUR INQUIRY</b-nav-item>
+            <b-nav-item :active="true" href="https://amityhealthcaregroup.com/education/#/" class="navlink">EDUCATION</b-nav-item>
+            <b-nav-item href="https://amityhealthcaregroup.com/resources/" class="navlink">RESOURCES</b-nav-item>
+            <b-nav-item href="https://amityhealthcaregroup.com/contact/" class="navlink">CONTACT US</b-nav-item>
+            <!-- <b-nav-item href="/#/" class="navlink buttonspecial">SUBMIT YOUR INQUIRY</b-nav-item> -->
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -93,7 +93,7 @@ created(){
   background-color: #003f8c;
   border-radius: 25px;
   color: transparent;
-  background-image: url("https://testing.amityhealthcaregroup.com/wp-content/themes/medici/arrow_03.png");
+  background-image: url("https://amityhealthcaregroup.com/wp-content/themes/medici/arrow_03.png");
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: center;

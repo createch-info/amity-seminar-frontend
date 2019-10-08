@@ -38,8 +38,8 @@ Loadder
         return{
           isProcess:false,
             user:{
-                email:'admin@admin.com',
-                password:'123456789'
+                email:'',
+                password:''
             }
         }
     },

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
   const HTTP = axios.create({
-    baseURL: `https://testing.amityhealthcaregroup.com/education/api/admin/`,
+    baseURL: `https://amityhealthcaregroup.com/education/api/admin/`,
     headers: {
         Accept:'application/json',
         'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE',

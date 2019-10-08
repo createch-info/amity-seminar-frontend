@@ -75,9 +75,7 @@
                 </b-row>
                 <b-row >
                   <b-col>
-                      <read-more more-str="read more" :text="currentSeminar.venue_address" link="#" less-str="read less" :max-chars="250"></read-more>
-                      <!-- {{currentSeminar.venue_address}} -->
-                      <!-- <b-form-textarea disabled rows="6" style="background-color:white;border:none;resize: none;outline:none;" v-model="currentSeminar.venue_address"></b-form-textarea> -->
+                    <read-more more-str="read more" :text="currentSeminar.venue_address" link="#" less-str="read less" :max-chars="250">&nbsp;</read-more>
                       <br/>
                   </b-col>
                 </b-row>
@@ -356,10 +354,12 @@
                 }
                       }"
                     :client="paypal"
-                    env="sandbox"
+                    env="production"
                   ></PayPal>
                 <!-- <span v-if="!currentSeminar.isPast"> -->
                   <button v-if="!registrantsError || currentSeminar.isFull" disabled class="dummybutton">Buy Now</button>
+                  <br/>
+                    <div style="font-size:12px;text-align:center;font-weight:bold;"><i>if you're paying with Debit/Credit card, please scroll down in the PayPal popup window to see this option</i></div>
                 <!-- </span>  -->
               </b-row>
             </div>
@@ -431,11 +431,16 @@ export default {
       loading: false,
       events: [],
       isProcess: false,
+      // paypal: {
+      //   sandbox:
+      //     "AT1L2reKiixvOpfviW4EasOTaQXKhigqLpIIbBeHQfUWPYi_XWoWat8ppdsYZMwdmHsCj1dx6NnG36YN",
+      //   production: "<production client id>"
+      // },
       paypal: {
         sandbox:
-          "AT1L2reKiixvOpfviW4EasOTaQXKhigqLpIIbBeHQfUWPYi_XWoWat8ppdsYZMwdmHsCj1dx6NnG36YN",
-        production: "<production client id>"
-      },
+          "",
+        production: "AUFnvE0LVsJKtenY0t3fHlcpKeESQbPxtBIkym7lCqo5oFbm3ewIfaQeXpQ5qqQE3jcEglZNSmLWlpKx"
+       },
       error: {},
       registrants: [
 { name: null,

@@ -100,7 +100,7 @@
               <gmap-info-window
                 v-if="currentSeminar.venue_address"
                 :position="currentCroods"
-              >{{currentSeminar.venue_address}}</gmap-info-window>
+              >{{currentSeminar.formated_venue_address}}</gmap-info-window>
             </GmapMap>
           </b-col>
         </b-row>
@@ -430,7 +430,7 @@
           track-by="id"
           :per-page="10"
           :first-page="0"
-          :api-url="`https://testing.amityhealthcaregroup.com/education/api/admin/seminar/registrants/${currentSeminar.id}?query=${search}`"
+          :api-url="`https://amityhealthcaregroup.com/education/api/admin/seminar/registrants/${currentSeminar.id}?query=${search}`"
           :fields="columns"
           data-path="data"
           pagination-path

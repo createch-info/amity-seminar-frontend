@@ -24,7 +24,7 @@
           </div>
           <div class="col-md-9 mdbox">
           <span class="smallfont">Email Us</span>
-          <span class="bigfont">eg@amityhealthcaregroup.com</span>
+          <span class="bigfont">ig@amityhealthcaregroup.com</span>
           </div>
           </div>
         </div>
@@ -57,13 +57,13 @@
         <div class="col-md-1"></div>
         <div class="col-md-9">
           <ul class="footermenu">
-            <li><a href="https://testing.amityhealthcaregroup.com">Home</a></li>
-            <li><a href="https://testing.amityhealthcaregroup.com/about-us/">About Us </a></li>
-            <li><a href="https://testing.amityhealthcaregroup.com/consulting-services/">Consulting Services</a></li>
-            <li><a href="https://testing.amityhealthcaregroup.com/outsourcing-services/">Outsourcing Services</a></li>
-            <li><a href="https://testing.amityhealthcaregroup.com/education/#/">Education </a></li>
-            <li><a href="https://testing.amityhealthcaregroup.com/resources/">Resources </a></li>
-            <li><a href="https://testing.amityhealthcaregroup.com/contact/">Contact Us</a></li>
+            <li><a href="https://amityhealthcaregroup.com">Home</a></li>
+            <li><a href="https://amityhealthcaregroup.com/about-us/">About Us </a></li>
+            <li><a href="https://amityhealthcaregroup.com/consulting-services/">Consulting Services</a></li>
+            <li><a href="https://amityhealthcaregroup.com/outsourcing-services/">Outsourcing Services</a></li>
+            <li><a href="https://amityhealthcaregroup.com/education/#/">Education </a></li>
+            <li><a href="https://amityhealthcaregroup.com/resources/">Resources </a></li>
+            <li><a href="https://amityhealthcaregroup.com/contact/">Contact Us</a></li>
 
           </ul>
           
